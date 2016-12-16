@@ -1,0 +1,107 @@
+body { font-family: sans-serif; }
+h1 { text-align: center; }
+
+#error    { width: 100%; }
+#products { width: 40%; float: left; }
+#cart     { width: 40%; float: right; }
+
+.errorMsg {
+  color: #ad5e5c;
+  background: #ffe7e7;
+  border:2px solid #e77d7b;
+  padding: 5px;
+}
+
+.products, .product {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  background: #d0d0ff;
+  border: 1px solid #4b4b89;
+}
+
+.name {
+  font-size: 26px;
+  text-transform: uppercase;
+  color: #4b4b89;
+}
+.description {
+  color: #414150;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.price {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #323065;
+  font-size: 20px;
+  text-align: right;
+}
+.check::before {
+  content: '✓';
+  color: green;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: -24px;
+  font-size: 26px;
+}
+.doublecheck::before {
+  content: 'X';
+}
+.done::before {
+  content: '✓';
+  color: green;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: -20px;
+  font-size: 20px;
+}
+.doubledone::before {
+  content: 'X';
+}
+
+.cart {
+  position: relative;
+  padding: 10px;
+}
+.cart.empty {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 16px;
+  border: 1px solid #4b4b89;
+  color: #323065;
+  background: white;
+}
+button:hover {
+  color: white;
+  background: #4b4b89;
+}
+button:active {
+  color: white;
+  background: green;
+}
+
+.buy button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.order {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+}
