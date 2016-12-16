@@ -3,7 +3,7 @@ var error_handler = function(jqXHR, textStatus, errorThrown) {
   var error_msg = this.url + ': ' + textStatus + ' ' + jqXHR.status + ' ' + errorThrown;
   var $error = $('<div>').addClass('errorMsg').text(error_msg);
   $('#error').append($error);
-  setTimeout(function() {$('#error').remove();}, 5000);
+  setTimeout(function() {$('#error').remove();}, 10000);
 }
 
 // products and cart
@@ -61,16 +61,16 @@ Product.prototype.buy = function() {
 }
 Product.prototype.prepare = function() {
   var _this = this;
-  $.get('http://localhost:9292/validation')
+  $.get('http://localhost/validation')
   .fail(error_handler)
-  .done(function(data) { 
-    _this.display_checkmark(); 
+  .done(function(data) {
+    _this.display_checkmark();
     _this.sending();
   });
 }
 Product.prototype.sending = function() {
   var _this = this;
-  $.get('http://localhost:9292/validation')
+  $.get('http://localhost/validation')
   .fail(error_handler)
   .done(function(data) { _this.display_second_checkmark(); });
 }
@@ -79,17 +79,18 @@ Product.prototype.sending = function() {
 
 // ajax methods
 var get_products = function() {
-  $.get('http://localhost:9292/products')
+  $.get('http://localhost/ajax_panier/Products.php')
   .fail(error_handler)
   .done(function(data) {
     products = [];
-    data.products.forEach(function(product) { products.push(new Product(product)); });
-    display_products();
+    console.log('data : ' + data);
+    // data.products.forEach(function(product) { products.push(new Product(product)); });
+    // display_products();
   });
 }
 
 var get_cart = function() {
-  $.get('http://localhost:9292/cart')
+  $.get('http://localhost/cart')
   .fail(error_handler)
   .done(function(data) {
     if (! $.isEmptyObject(data)) {
@@ -127,7 +128,7 @@ var display_cart = function() {
 // main
 $(function() {
   $.ajaxSetup({ cache: false }); // stop caching get request (especially validations)
-  
+
   get_products();
-  get_cart();
+  // get_cart();
 });

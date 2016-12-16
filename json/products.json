@@ -1,0 +1,17 @@
+{
+  "0" :{
+    "name": "vélo",
+    "description" : "vélo à 2 roues",
+    "prix" : "300"
+  },
+  "1" :{
+    "name" : "pomme",
+    "description" : "fruit à manger",
+    "prix" : "1"
+  },
+  "2" :{
+    "name" : "ordinateur",
+    "description" : "pratique",
+    "prix" : "1000"
+  },
+}
